@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { useUser } from "../../../store/store";
+import { useUser } from "../../../store/userStore";
 import { ADMSideBar } from "./uiComponents/sideBar";
 
 export const ADMLayout = () => {

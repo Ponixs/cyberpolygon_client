@@ -1,12 +1,12 @@
 import { Categories } from "../../uiComponents/categories"
-import { useMaterials, useUser } from "../../../store/store"
+import { useMaterials } from "../../../store/materialStore"
+import { useUser } from "../../../store/userStore"
 import { useEffect } from "react"
 import { CardsContainer } from "../../uiComponents/cardsContainer";
 import { PATHS } from "../../../utils/urls";
-import { shallow } from "zustand/shallow";
 
 export const Materials = () => {
-    const materials = useMaterials(state => state.materials, shallow);
+    const materials = useMaterials(state => state.materials);
     const { loadMaterials, category, setCategory } = useMaterials(state => ({ loadMaterials: state.loadMaterials, category: state.category, setCategory: state.setCategory }));
     const userCategories = useUser(state => state.categories);
 

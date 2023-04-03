@@ -2,14 +2,14 @@ import { Link } from "react-router-dom"
 import { PATHS } from '../../utils/urls'
 import brandSvg from '../../assets/brand.svg'
 import underlineSvg from '../../assets/underline.svg'
-import { useUser } from '../../store/store'
+import { useUser } from '../../store/userStore'
 import { useMode } from "../../customHooks/useTheme"
 import './header.css'
 
 
 export const Header = () => {
-    const userId = useUser(state => state.id)
-    const userRole = useUser(state => state.role)
+    const userId = useUser.getState().id;
+    const userRole = useUser.getState().role;
     const toggleMode = useMode('dark')
 
 
@@ -34,8 +34,8 @@ export const Header = () => {
                         <div id="exersise"><Link to={userId ? (userRole === 'admin' ? PATHS.admin : PATHS.profile) : PATHS.login} className="menu_item">Профиль</Link></div>
                         <div id="exersise_1"><img src={underlineSvg} alt="" /></div>
                     </div>
-                    <div class="menu__togle-square" onClick={toggleMode}>
-                        <div id='change' class="menu__togle" ></div>
+                    <div className="menu__togle-square" onClick={toggleMode}>
+                        <div id='change' className="menu__togle" ></div>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@ export const Header = () => {
                             <div className="menu-items-item"><li><Link to={PATHS.home}>Главная</Link></li></div>
                             <div className="menu-items-item"><li><Link to={PATHS.tasks}>Задания</Link></li></div>
                             <div className="menu-items-item"><li><Link to={PATHS.materials}>Материалы</Link></li></div>
-                            <div className="menu-items-item"><li><Link to={userId ? PATHS.profile : PATHS.login}>Профиль</Link></li></div>
+                            <div className="menu-items-item"><li><Link to={userId ? (userRole === 'admin' ? PATHS.admin : PATHS.profile) : PATHS.login}>Профиль</Link></li></div>
                         </div>
                     </div>
                 </div>

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { useUser } from "../../../store/store";
+import { useUser } from "../../../store/userStore";
 import { AuthService } from "../../../services/authService";
 import { useRef } from "react";
 import { PATHS } from "../../../utils/urls";
 
 export const Login = () => {
-    const setUser = useUser(state => state.setUser);
+    const setUser = useUser.getState().setUser;
     const emailRef = useRef(null)
     const passRef = useRef(null)
 
