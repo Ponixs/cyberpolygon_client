@@ -15,6 +15,7 @@ export const Login = () => {
         AuthService.login(email, pass)
             .then(userData => {
                 setUser(userData)
+                /* redirect logic */
             })
             .catch(err => {
                 console.log(err);

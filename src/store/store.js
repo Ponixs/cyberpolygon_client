@@ -3,7 +3,7 @@ import api from "../http/api"
 
 
 export const useUser = create((set, get) => ({
-    id: null,
+    id: true,
     name: null,
     surname: null,
     categories: ['stegano'],
