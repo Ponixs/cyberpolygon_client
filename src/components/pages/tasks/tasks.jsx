@@ -1,15 +1,15 @@
 import { Categories } from "../../uiComponents/categories"
-import { useTasks, useUser } from "../../../store/store"
-import { useEffect, useState } from "react"
-import { shallow } from 'zustand/shallow'
+import { useTasks } from "../../../store/taskStore"
+import { useUser } from "../../../store/userStore"
+import { useEffect } from "react"
 import { CardsContainer } from "../../uiComponents/cardsContainer"
 import { PATHS } from "../../../utils/urls"
 import "./tasks.css"
 
 
 export const Tasks = () => {
-    const tasks = useTasks(state => state.tasks, shallow);
-    const { loadTasks, category, setCategory } = useTasks(state => ({ loadTasks: state.loadTasks, category: state.category, setCategory: state.setCategory }));
+    const [tasks, category] = useTasks(state => [state.tasks, state.category]);
+    const { loadTasks, setCategory } = useTasks.getState();
     const userCategories = useUser(state => state.categories);
 
     function handleScroll() {

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useNavigation } from "react-router-dom";
 import { AuthService } from "../services/authService";
-import { useUser } from "../store/store";
+import { useUser } from "../store/userStore";
 import { Header } from "./header/header";
 /*
 import { Footer } from "./footer/footer";
@@ -9,7 +9,7 @@ import { Loader } from "./ui/loader/loader";
 */
 export const Layout = () => {
   const { state } = useNavigation();
-  const setUser = useUser((state) => state.setUser);
+  const setUser = useUser.getState().setUser;
   useEffect(() => {
     AuthService.checkAuth()
     .then((data) => {
