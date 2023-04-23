@@ -4,7 +4,7 @@ import { PATHS } from "../utils/urls";
 const API_URL = PATHS.SERVERAPI;
 
 const api = axios.create({
-    withCredentials: true,
+    // withCredentials: true,
     baseURL: API_URL
 })
 
