@@ -1,67 +1,95 @@
 import delSvg from '../../../../../assets/delete.svg'
 import addSvg from '../../../../../assets/add.svg'
+import { useRef } from 'react';
+import { ADMService } from '../../../../../services/ADMService/ADMService';
 
 export const AddTask = () => {
+
+    const ansRef = useRef(null);
+    const diffRef = useRef(null);
+    const catRef = useRef(null);
+    const titleRef = useRef(null);
+    const ptsRef = useRef(null);
+    const descRef = useRef(null);
+    const fileRef = useRef(null);
+    const solRef = useRef(null);
+
+
+
+    const onFormSubmit = (e) => {
+        e.preventDefault();
+
+        let postData = {
+            category: catRef.current.value,
+            difficulty: diffRef.current.value,
+            points: ptsRef.current.value,
+            title: titleRef.current.value,
+            description: descRef.current.value,
+            answer: ansRef.current.value,
+            solution: solRef.current.value,
+            task: fileRef.current.files
+        }
+
+        ADMService.addTask(postData);
+    }
     return (
         <div>
-        <form id="forma" action="" method="post" name="forma">
-                    <div id="central-top-container">
-                        <div id="central-top-container-header">Добавить задание</div>
-                        <div id="central-top-container-body">
-                            <div id="task-left-container">
-                                <div id="task-left-container-top">
-                                    <div id="task-left-container-top-name">
-                                        <p>Матрешка</p>
-                                    </div>
-                                    <div id="task-left-container-top-count">
-                                        <p>50</p>
-                                    </div>
+            <form id="forma" action="" method="post" name="forma" onSubmit={onFormSubmit}>
+                <div id="central-top-container">
+                    <div id="central-top-container-header">Добавить задание</div>
+                    <div id="central-top-container-body">
+                        <div id="task-left-container">
+                            <div id="task-left-container-top">
+                                <div id="task-left-container-top-name">
+                                    <input type="text" name='' ref={titleRef} />
                                 </div>
-                                <div id="task-left-container-text">
-                                    <p>
-                                        Сдув пыль с трёхдюймовой дискеты, вы решили оттянуться в Дум. Но вы вспомнили, что в былые времена где-то рядом с кишками и супер-шотганами вы спрятали флаг, а потом стёрли файл! Надеюсь, он ещё не перезаписался чем-нибудь другим.
-                                    </p>
+                                <div id="task-left-container-top-count">
+                                    <input type="text" name='' ref={ptsRef} />
                                 </div>
-                                <textarea id="left-container-text-input" placeholder="Поле для ответа"></textarea>
-                                <select id="selectID">
-                                    <option id="zero">Выбор сложности</option>
-                                    <option id="one">1</option>
-                                    <option id="two">2</option>
-                                </select>
-                                <select id="selectID2">
-                                    <option id="zero">Выбор категории</option>
-                                    <option id="one">1</option>
-                                    <option id="two">2</option>
-                                </select>
                             </div>
-                            <div id="task-right-container">
-                                <div id="task-right-container-header">
-                                    <div id="task-right-container-header-cont">.256sha</div>
-                                    <button id="task-right-container-header-icon">
-                                        <img id="delete-icon" src={delSvg} alt="удалить" />
-                                    </button>
-                                </div>
-                                <div id="task-right-container-body">
-                                    <textarea id="task-right-container-body-text" placeholder="Решение"></textarea>
-                                    <div id="task-right-container-body-inputs">
-                                        <div id="task-right-container-body-fileInput">
-                                            <input id="file-input" type="file" name="file" accept="image/*" />
-                                            <label className="form-label-file" htmlFor="file-input" id="reg-file-input">
-                                                <span>Файл</span>
-                                                <div id="stud-logo-container">
-                                                    <img id="stud-bilet-logo" src={addSvg} alt="добавить" />
-                                                </div>
-                                            </label>
-                                        </div>
-                                        <div id="task-right-container-body-add">
-                                            <button id="button" type="submit">Добавить</button>
-                                        </div>
+                            <div id="task-left-container-text">
+                                <textarea ref={descRef} ></textarea>
+                            </div>
+                            <textarea ref={ansRef} id="left-container-text-input" placeholder="Поле для ответа"></textarea>
+                            <select ref={diffRef} id="selectID">
+                                <option id="zero">Выбор сложности</option>
+                                <option id="one">1</option>
+                                <option id="two">2</option>
+                            </select>
+                            <select ref={catRef} id="selectID2">
+                                <option id="zero">Выбор категории</option>
+                                <option id="one">1</option>
+                                <option id="two">2</option>
+                            </select>
+                        </div>
+                        <div id="task-right-container">
+                            <div id="task-right-container-header">
+                                <div id="task-right-container-header-cont">.256sha</div>
+                                <button id="task-right-container-header-icon">
+                                    <img id="delete-icon" src={delSvg} alt="удалить" />
+                                </button>
+                            </div>
+                            <div id="task-right-container-body">
+                                <textarea ref={solRef} id="task-right-container-body-text" placeholder="Решение"></textarea>
+                                <div id="task-right-container-body-inputs">
+                                    <div id="task-right-container-body-fileInput">
+                                        <input ref={fileRef} id="file-input" type="file" name="file" accept="image/*" />
+                                        <label className="form-label-file" htmlFor="file-input" id="reg-file-input">
+                                            <span>Файл</span>
+                                            <div id="stud-logo-container">
+                                                <img id="stud-bilet-logo" src={addSvg} alt="добавить" />
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div id="task-right-container-body-add">
+                                        <button id="button" type="submit">Добавить</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
-    </div>
+                </div>
+            </form>
+        </div>
     );
 }
