@@ -1,6 +1,7 @@
 import axios from "axios";
+import { PATHS } from "../utils/urls";
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = PATHS.SERVERAPI;
 
 const api = axios.create({
     withCredentials: true,
