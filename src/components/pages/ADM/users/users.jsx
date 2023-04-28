@@ -10,26 +10,26 @@ import { Unusers } from './Unusers/Unusers'
 export const ADMUsers = () => {
 
     let RequestsData = [
-        {name:"Стас Феоктистов" , category: "Web"},
-        {name:"Стас Феоктистов" , category: "Web"},
+        { id: 1, name: "Стас Феоктистов", category: "Web" },
+        { id: 2, name: "Стас Феоктистов", category: "Web" },
     ];
 
     let UsersData = [
-        {name: "Глеб"},
-        {name: "Стас"},
-        {name: "Другой Стас"}
+        { id: 1, name: "Глеб", nickname: "Gleb", email: "gleb@gmail.com", password: "12345321", surname: "surname", categories: [], studentCard: "img" },
+        { id: 2, name: "Стас", nickname: "Gleb", email: "gleb@gmail.com", password: "12345321", surname: "surname", categories: [], studentCard: "img" },
+        { id: 3, name: "Другой Стас", nickname: "Gleb", email: "gleb@gmail.com", password: "12345321", surname: "surname", categories: [], studentCard: "img" }
     ];
 
     let UnusersData = [
-        {name: "Стас Феоктистов", mail: "viln1337@mail.ru", category: "Web"},
+        { id: 2, name: "Стас Феоктистов", email: "viln1337@mail.ru", category: "Web" },
     ];
 
     return (
         <>
             <div className="admin">
-                <Requests data = {RequestsData} />
-                <Users data = {UsersData} />
-                <Unusers data = {UnusersData} />
+                <Requests data={RequestsData} />
+                <Users data={UsersData} />
+                <Unusers data={UnusersData} />
             </div>
         </>
     )

@@ -1,4 +1,5 @@
 import delSvg from '../../../../assets/delete.svg'
+import { ADMUsers } from '../../../../services/ADMService/ADMUsers';
 
 export const Unuser = (props) => {
     return (
@@ -27,7 +28,7 @@ export const Unuser = (props) => {
                 <div className="reg_delite"><button>
                     <img src={delSvg} alt="" className="L_Trash" />
                 </button></div>
-                <div className="reg_aply"><button>Добавить</button></div>
+                <div className="reg_aply" onClick={() => ADMUsers.verifyUser(props.data)}><button>Добавить</button></div>
             </div>
         </div>
     );

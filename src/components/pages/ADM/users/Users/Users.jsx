@@ -3,20 +3,19 @@ import { User } from '../../uiComponents/User';
 
 export const Users = (props) => {
 
-    let UserElements = props.data
-        .map(d => <User data = {d} /> );
+    let UserElements = props.data.map(d => <User data={d} />);
     return (
         <div className="users_users">
             <div className="admin_users">
-                    <div className="users_tittle">
-                        <div className="tittle_p">Пользователи</div>
-                        <div className="users_search">
-                            <div className="search_input"><input type="text" /></div>
-                            <div className="img_search"><button><img src={loopSvg} alt="" /></button>
-                            </div>
+                <div className="users_tittle">
+                    <div className="tittle_p">Пользователи</div>
+                    <div className="users_search">
+                        <div className="search_input"><input type="text" /></div>
+                        <div className="img_search"><button><img src={loopSvg} alt="" /></button>
                         </div>
                     </div>
-            {UserElements}
+                </div>
+                {UserElements}
             </div>
         </div>
     );
