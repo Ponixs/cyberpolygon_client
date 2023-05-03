@@ -25,7 +25,7 @@ export const Unuser = (props) => {
                 </div>
             </div>
             <div className="reg_buttons">
-                <div className="reg_delite"><button>
+                <div className="reg_delite" onClick={() => ADMUsers.delUser(props.data.id)}><button>
                     <img src={delSvg} alt="" className="L_Trash" />
                 </button></div>
                 <div className="reg_aply" onClick={() => ADMUsers.verifyUser(props.data)}><button>Добавить</button></div>

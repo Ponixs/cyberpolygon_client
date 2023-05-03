@@ -9,7 +9,7 @@ export const Request = (props) => {
                 <div className="name"> {props.data.name} </div>
                 <div className="category"> {props.data.category} </div>
                 <div className="request_button">
-                    <div className="button_plus" onClick={() => ADMUsers.createUser(props.data)}><button>
+                    <div className="button_plus" onClick={() => ADMUsers.updateUser(props.data)}><button>
                         <img src={addSvg} alt="" className="L_Plus" />
                     </button></div>
                     <div className="button_minus" onClick={() => ADMUsers.delUser(props.data.id)}><button>

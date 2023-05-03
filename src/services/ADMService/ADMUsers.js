@@ -1,9 +1,9 @@
 import api from "../../http/api"
-import { PATHS } from "../../utils/urls"
+import { SERVER_PATHS } from "../../utils/serverUrls"
 
 export class ADMUsers {
   static async createUser(userInfo){
-    await api.post(`${PATHS.register}`, {
+    await api.post(`${SERVER_PATHS.register}`, {
       email: userInfo.email,
       nickname: userInfo.nickname,
       name: userInfo.name,
@@ -16,7 +16,7 @@ export class ADMUsers {
 
   static async getUsers(){
     let users
-    await api.get(`${PATHS.users}`).then((res) => {
+    await api.get(`${SERVER_PATHS.users}`).then((res) => {
       users = res.data
       console.log(res)
     }).catch(err => console.error(err))
@@ -24,7 +24,7 @@ export class ADMUsers {
   }
 
   static async verifyUser(userInfo) {
-    await api.post(`${PATHS.activation}/${userInfo.id}`,{
+    await api.post(`${SERVER_PATHS.activation}/${userInfo.id}`,{
       email: userInfo.email,
       solved: true,
       comment: userInfo.comment
@@ -32,7 +32,7 @@ export class ADMUsers {
   }
 
   static async updateUser(userInfo) {
-    await api.put(`${PATHS.user}`, {
+    await api.put(`${SERVER_PATHS.user}`, {
       nickname: userInfo.nickname,
       password: userInfo.password,
       delCategories: userInfo.delCategories,
@@ -42,7 +42,7 @@ export class ADMUsers {
   }
 
   static async delUser(userId) {
-    await api.delete(`${PATHS.users}/${userId}`).then(res => console.log(res.data)).catch(err=>console.error(err))
+    await api.delete(`${SERVER_PATHS.users}/${userId}`).then(res => console.log(res.data)).catch(err=>console.error(err))
     
   }
 }
