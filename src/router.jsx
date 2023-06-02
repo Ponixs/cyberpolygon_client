@@ -10,6 +10,7 @@ import { ADMLayout } from "./components/pages/ADM/ADMLayout";
 import { ADMTasks } from "./components/pages/ADM/tasks/tasks";
 import { ADMMaterials } from "./components/pages/ADM/materials/materials";
 import { ADMUsers } from "./components/pages/ADM/users/users";
+import { HomePage } from "./components/pages/home/home";
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <>HomeComponent</>,
+        element: <HomePage />,
       },
       {
         path: PATHS.tasks,
