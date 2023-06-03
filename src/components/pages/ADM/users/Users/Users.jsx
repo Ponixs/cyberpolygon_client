@@ -3,7 +3,7 @@ import { User } from '../../uiComponents/User';
 
 export const Users = (props) => {
 
-    let UserElements = props.data.map(d => <User data={d} />);
+    let UserElements = props.data.map(d => <User data={d} key={d.id}/>);
     return (
         <div className="users_users">
             <div className="admin_users">
