@@ -11,5 +11,5 @@ export const PATHS = {
     users: '/users',
     user: '/user',
     activation: '/activation',
-    SERVERAPI: 'https://2dd25223-6b01-41e7-9875-1409b029bbeb.mock.pstmn.io'
+    SERVERAPI: '' //'https://2dd25223-6b01-41e7-9875-1409b029bbeb.mock.pstmn.io'
 };

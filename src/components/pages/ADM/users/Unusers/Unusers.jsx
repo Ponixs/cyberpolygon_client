@@ -3,7 +3,7 @@ import { Unuser } from '../../uiComponents/Unuser';
 
 export const Unusers = (props) => {
     let UnuserElements = props.data
-        .map(d => <Unuser data = {d} /> );
+        .map(d => <Unuser data = {d} key={d.id} /> );
     return (
         <div className="unusers">
             <div className="unusers_tittle">
