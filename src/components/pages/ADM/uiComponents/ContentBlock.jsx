@@ -9,9 +9,9 @@ export const ContentBlock = (props) => {
                     {props.data.articleDescript}
                 </div>
                 <div className="content__article-elems">
-                    <div className="content__elem"></div>
-                    <div className="content__elem"></div>
-                    <div className="content__elem"></div>
+                    <div className="content__elem"></div>   // edit
+                    <div className="content__elem"></div>   // del
+                    <div className="content__elem"></div>   // goto
                 </div>
             </div>
         </div>

@@ -1,10 +1,9 @@
 import delSvg from '../../../../../assets/delete.svg'
 import addSvg from '../../../../../assets/add.svg'
 import { useRef } from 'react';
-import { ADMService } from '../../../../../services/ADMService/ADMService';
+import { TasksService } from '../../../../../services/tasksService';
 
-export const AddTask = () => {
-
+export const AddTask = ({ taskData }) => {
     const ansRef = useRef(null);
     const diffRef = useRef(null);
     const catRef = useRef(null);
@@ -14,7 +13,18 @@ export const AddTask = () => {
     const fileRef = useRef(null);
     const solRef = useRef(null);
 
-
+    setTimeout(() => {
+        if (catRef.current && taskData && Object.keys(taskData).length !== 0) {
+            catRef.current.value = taskData.category;
+            diffRef.current.value = taskData.difficulty;
+            ptsRef.current.value = taskData.points;
+            titleRef.current.value = taskData.title;
+            descRef.current.value = taskData.description;
+            ansRef.current.value = taskData.answer;
+            solRef.current.value = taskData.solution;
+            fileRef.current.files = taskData.file;
+        }
+    }, 0)
 
     const onFormSubmit = (e) => {
         e.preventDefault();
@@ -30,7 +40,7 @@ export const AddTask = () => {
             task: fileRef.current.files
         }
 
-        ADMService.addTask(postData);
+        TasksService.addTask(postData);
     }
     return (
         <div>
@@ -65,9 +75,9 @@ export const AddTask = () => {
                         <div id="task-right-container">
                             <div id="task-right-container-header">
                                 <div id="task-right-container-header-cont">.256sha</div>
-                                <button id="task-right-container-header-icon">
+                                <div id="task-right-container-header-icon">
                                     <img id="delete-icon" src={delSvg} alt="удалить" />
-                                </button>
+                                </div>
                             </div>
                             <div id="task-right-container-body">
                                 <textarea ref={solRef} id="task-right-container-body-text" placeholder="Решение"></textarea>

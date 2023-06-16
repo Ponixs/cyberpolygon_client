@@ -6,9 +6,9 @@ import { AddTask } from './AddTask/AddTask'
 export const ADMTasks = () => {
 
     let tasks = [
-        {name: "Матрёшка", count: "50"},
-        {name: "Балалайка", count: "30"},
-        {name: "Неволяшка", count: "20"},
+        {id: 1, name: "Матрёшка", count: "50"},
+        {id: 2, name: "Балалайка", count: "30"},
+        {id: 3, name: "Неволяшка", count: "20"},
     ];
 
 

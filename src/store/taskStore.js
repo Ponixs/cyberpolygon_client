@@ -18,6 +18,16 @@ export const useTasks = create((set, get) => ({
                 .finally(() => { set({ isLoading: false }) })
         }
     },
+    getTask: (id, cat = 'all') => {
+        if (cat === 'all') {
+            for (let category in get().tasks) {
+                let task = get().tasks[category].data.find((elem) => elem.id == id);
+                if (task) return task;
+            }
+        } else {
+            return get().tasks[cat].data.find((elem) => elem.id == id);
+        }
+    },
     setCategory: (cat) => { set({ category: cat }) }
 }))
 

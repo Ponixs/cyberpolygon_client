@@ -1,13 +1,16 @@
+import api from "../../http/api";
+
+
 export class ADMMaterials {
   static async addMaterial(materialInfo) {
-    console.log()
+    return api.post('materials', materialInfo);
   }
 
   static async changeMaterial(materialInfo) {
-    console.log()
+    return api.put('materials', materialInfo);
   }
 
   static async delMaterial(materialId) {
-    console.log()
+    return api.delete(`materials/${materialId}`);
   }
 }
