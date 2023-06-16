@@ -1,10 +1,11 @@
-import api from "../../http/api"
+import api from "../http/api"
 
-export class ADMTasks {
+export class TasksService {
 
   static async getTask(id) {
-    return await api.get(`/tasks/${id}`)
-      .then(response => response.data)
+    return {id: 4656, category: 'ppc', difficulty: "hard", points: 100, title: "test task", description: "try to solve hard task and get 100 points", file: "path/to/task/file/id"}
+    // return await api.get(`/tasks/${id}`)
+    //   .then(response => response.data)
   }
   /** =>
   { "id": ...,

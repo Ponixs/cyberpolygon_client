@@ -258,6 +258,7 @@ button {
 			width: 39px;
 			height: 39px;
 			position: relative;
+			cursor: pointer;
 		}
 
 
