@@ -1,5 +1,5 @@
 import delSvg from '../../../../assets/delete.svg'
-import { ADMUsers } from '../../../../services/ADMService/ADMUsers';
+import { UserService } from '../../../../services/userService';
 
 export const Unuser = (props) => {
     return (
@@ -25,10 +25,10 @@ export const Unuser = (props) => {
                 </div>
             </div>
             <div className="reg_buttons">
-                <div className="reg_delite" onClick={() => ADMUsers.delUser(props.data.id)}><button>
+                <div className="reg_delite" onClick={() => UserService.delUser(props.data.id)}><button>
                     <img src={delSvg} alt="" className="L_Trash" />
                 </button></div>
-                <div className="reg_aply" onClick={() => ADMUsers.verifyUser(props.data)}><button>Добавить</button></div>
+                <div className="reg_aply" onClick={() => UserService.verifyUser(props.data)}><button>Добавить</button></div>
             </div>
         </div>
     );
