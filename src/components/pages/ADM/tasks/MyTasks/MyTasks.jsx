@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import loopSvg from '../../../../../assets/loop.svg'
 import { useModal } from '../../../../../customHooks/useModal';
 import { useSnackbar } from '../../../../../customHooks/useSnackbar';
-import { TasksService } from '../../../../../services/tasksService';
+import { TaskService } from '../../../../../services/taskService';
 import { Task } from '../../uiComponents/Task';
 import { AddTask } from '../AddTask/AddTask';
 
@@ -21,7 +21,7 @@ export const MyTasks = (props) => {
 
         if (e.target.className.includes("EDITBTN")) {
             /* тут логика где мы показываем модалочку с формой для изменения */
-            TasksService.getTask(taskId)
+            TaskService.getTask(taskId)
                 .then(taskData => {
                     setTask(taskData);
                     showEditForm();
@@ -30,12 +30,12 @@ export const MyTasks = (props) => {
         }
         else if (e.target.className.includes("DELETEBTN")) {
             /* тут логика где мы показываем модалочку для удаления */
-            TasksService.getTask(taskId)
+            TaskService.getTask(taskId)
                 .then(taskData => {
                     setTask(taskData);
                     showDeleteModal();
                 })
-                .catch((err) => showErrorSnackbar(err.message))
+                .catch((err) => showErrorSnackbar(err.errMessage))
         }
         else if (e.target.className.includes("TASK")) {
             /* тут логика где мы показываем пользователю страничку с задачей */

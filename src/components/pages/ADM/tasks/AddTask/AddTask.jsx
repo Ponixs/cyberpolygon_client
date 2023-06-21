@@ -1,7 +1,7 @@
 import delSvg from '../../../../../assets/delete.svg'
 import addSvg from '../../../../../assets/add.svg'
 import { useRef } from 'react';
-import { TasksService } from '../../../../../services/tasksService';
+import { TaskService } from '../../../../../services/taskService';
 
 export const AddTask = ({ taskData }) => {
     const ansRef = useRef(null);
@@ -40,7 +40,7 @@ export const AddTask = ({ taskData }) => {
             task: fileRef.current.files
         }
 
-        TasksService.addTask(postData);
+        TaskService.addTask(postData);
     }
     return (
         <div>
