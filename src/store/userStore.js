@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 
 // dev mode without server
+/*
 export const useUser = create((set, get) => ({
     id: true,
     name: 'null',
@@ -26,9 +27,8 @@ export const useUser = create((set, get) => ({
         })
     }
 }))
+*/
 
-
-/**     with server
 
 export const useUser = create((set, get) => ({
     id: null,
@@ -38,11 +38,11 @@ export const useUser = create((set, get) => ({
     role: 'guest',
     setUser: (user) => {
         set({
-            id: user.id ?? null,
-            name: user.name ?? null,
-            surname: user.surname ?? null,
-            categories: Object.entries(user.categories).reduce((i, j) => { if (j[1]) return [...i, j[0]]; return i }, []) ?? [],
-            role: user.role ?? 'guest'
+            id: user?.id ?? null,
+            name: user?.name ?? null,
+            surname: user?.surname ?? null,
+            categories: Object.entries(user?.categories ?? []).reduce((i, j) => { if (j[1]) return [...i, j[0]]; return i }, []) ?? [],
+            role: user?.role ?? 'guest'
         })
     },
     clearUser: () => {
@@ -55,4 +55,3 @@ export const useUser = create((set, get) => ({
         })
     }
 }))
-*/

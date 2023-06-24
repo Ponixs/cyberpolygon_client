@@ -5,7 +5,7 @@ export class AuthService {
         try {
             const response = await api.post('/login', { email, password });
             localStorage.setItem('token', response.data.accessToken);
-            return response.data.userInfo;
+            return response.data;
         } catch (e) {
             console.log(e);
         }

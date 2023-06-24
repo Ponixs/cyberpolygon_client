@@ -1,11 +1,13 @@
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import loopSvg from '../../../../../assets/loop.svg'
-import { useModal } from '../../../../../customHooks/useModal';
-import { useSnackbar } from '../../../../../customHooks/useSnackbar';
-import { TaskService } from '../../../../../services/taskService';
+import taskDataManager from '../../../../../dataManagers/tasks/taskDataManager';
+import { PATHS } from '../../../../../utils/urls';
 import { Task } from '../../uiComponents/Task';
 import { AddTask } from '../AddTask/AddTask';
+import { useSnackbar } from '../../../../../customHooks/useSnackbar';
+import { useModal } from '../../../../../customHooks/useModal';
+import loopSvg from '../../../../../assets/loop.svg'
+
 
 export const MyTasks = (props) => {
     const [task, setTask] = useState({});
@@ -21,7 +23,7 @@ export const MyTasks = (props) => {
 
         if (e.target.className.includes("EDITBTN")) {
             /* тут логика где мы показываем модалочку с формой для изменения */
-            TaskService.getTask(taskId)
+            taskDataManager.getById(taskId)
                 .then(taskData => {
                     setTask(taskData);
                     showEditForm();
@@ -30,25 +32,28 @@ export const MyTasks = (props) => {
         }
         else if (e.target.className.includes("DELETEBTN")) {
             /* тут логика где мы показываем модалочку для удаления */
-            TaskService.getTask(taskId)
+            taskDataManager.getById(taskId)
                 .then(taskData => {
                     setTask(taskData);
                     showDeleteModal();
                 })
-                .catch((err) => showErrorSnackbar(err.errMessage))
+                .catch((err) => showErrorSnackbar(err.message))
         }
         else if (e.target.className.includes("TASK")) {
             /* тут логика где мы показываем пользователю страничку с задачей */
-            navigate(`/tasks/${taskId}`);
+            navigate(`${PATHS.tasks}/${taskId}`);
         }
     }
 
     const handleDeleteConfirmBtnClick = () => {
         if (task.title === delFieldRef.current.value) {
             /** delete task */
-            setTask({})
+            taskDataManager.delete(task.id)
+                .then(() => setTask({}))
+                .catch((err) => showErrorSnackbar(err.message))
+
         } else {
-            delFieldRef.current.style.borderColor="#FF0000";
+            /* make input border red/orange/any color */
         }
     }
 

@@ -1,6 +1,5 @@
 export const PATHS = {
     home: '/',
-    materials: '/materials',
     aboutMaterial: '/aboutMaterial',
     tasks: '/tasks',
     aboutTask: '/aboutTask',
@@ -11,5 +10,5 @@ export const PATHS = {
     users: '/users',
     user: '/user',
     activation: '/activation',
-    SERVERAPI: '' //'https://4ce2-194-226-199-61.ngrok-free.app/'
+    SERVERAPI: 'https://9bf8-194-226-199-61.ngrok-free.app/api'
 };
