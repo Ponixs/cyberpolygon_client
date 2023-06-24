@@ -1,23 +1,53 @@
 import { create } from "zustand";
-import { TaskService } from "../services/taskService";
-
 
 export const useTasks = create((set, get) => ({
-    isLoading: false,
-    tasks: {},
-    category: 'all',
-    loadTasks: async () => {
-        const cat = get().category;
-        const nextPage = get().tasks[cat]?.nextPage;
-        if (nextPage !== null && !get().isLoading) {
-            set({ isLoading: true });
-            TaskService.getTasks(cat, nextPage || 1)
-                .then(response => {
-                    set({ tasks: { ...get().tasks, [cat]: { data: [...(get().tasks[cat]?.data ?? []), ...response.tasks], nextPage: response.nextPage } } })
-                })
-                .catch(error => console.log("error when fetch tasks", error))
-                .finally(() => { set({ isLoading: false }) })
-        }
-    },
-    setCategory: (cat) => { set({ category: cat }) }
+  tasks: {},
+  category: null,
+  setTasks: (cat, tasks) => {
+    set(state => ({
+      ...state,
+      tasks: {
+        ...state.tasks,
+        [cat]: [
+          ...state.tasks[cat],
+          ...tasks
+        ]
+      }
+    }))
+  },
+  setCategory: (cat) => { set({ category: cat }) },
+  delTask: (cat, id) => {
+    set(state => ({
+      ...state,
+      tasks: {
+        ...state.tasks,
+        [cat]: state.tasks[cat]?.data.filter((elem) => elem.id != id)
+      }
+    }))
+  },
+  editTask: (newTask) => {
+    set(state => ({
+      ...state,
+      tasks: {
+        ...state.tasks,
+        [newTask.category]: state.tasks[newTask.category]?.data.map((elem) => elem.id == newTask.id ? newTask : elem)
+      }
+    }))
+  },
+  addTask: (newTask) => {
+    set(state => ({
+      ...state,
+      tasks: {
+        ...state.tasks,
+        [newTask.category]: [...state.tasks[newTask.category], newTask]
+      }
+    }))
+  },
+  // you must call `clearState` when user change params for sorting
+  clearState: () => {
+    set({
+      tasks: {},
+      category: null
+    })
+  }
 }))
