@@ -2,7 +2,10 @@ import loopSvg from '../../../../../assets/loop.svg'
 import { Unuser } from '../../uiComponents/Unuser';
 
 export const Unusers = (props) => {
-    let UnuserElements = props.data
+    let data = [
+        { id: 2, name: "Стас Феоктистов", email: "viln1337@mail.ru", category: "Web" },
+    ];
+    let UnuserElements = data
         .map(d => <Unuser data = {d} key={d.id} /> );
     return (
         <div className="unusers">

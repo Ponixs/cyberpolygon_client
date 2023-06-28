@@ -17,6 +17,7 @@ export const Header = () => {
         <header>
             <div className="menu">
                 <div className="menu_image"><img src={brandSvg} alt="logoStolen(" /></div>
+                {/*
                 <div className="menu_items">
                     <div className="menu_button">
                         <div id="main"><Link to={PATHS.home} className="menu_item">Главная</Link></div>
@@ -37,7 +38,7 @@ export const Header = () => {
                     <div className="menu__togle-square" onClick={toggleMode}>
                         <div id='change' className="menu__togle" ></div>
                     </div>
-                </div>
+    </div>*/}   
             </div>
             <nav>
                 <div className="navbar">

@@ -6,9 +6,15 @@ export const PATHS = {
     profile: '/profile',
     login: '/login',
     register: '/registration',
-    admin: '/adminPage',
+    //admin: '/adminPage',
+    userAuth: '/auth',
     users: '/users',
     user: '/user',
     activation: '/activation',
-    SERVERAPI: 'https://9bf8-194-226-199-61.ngrok-free.app/api'
+    SERVERAPI: 'https://9bf8-194-226-199-61.ngrok-free.app/api',
+
+    adminTasks: "/adminTasks",
+    adminRequests: "/adminRequests",
+    adminUsers: "/adminUsers",
+    adminUnusers: "/adminUnusers"
 };
