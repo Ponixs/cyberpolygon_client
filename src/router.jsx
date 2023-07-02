@@ -12,6 +12,7 @@ import { HomePage } from "./components/pages/home/home";
 import { Requests } from "./components/pages/ADM/users/Requests/Requests";
 import { Users } from "./components/pages/ADM/users/Users/Users";
 import { Unusers } from "./components/pages/ADM/users/Unusers/Unusers";
+import { YandexAuth } from "./components/pages/LogReg/yandexAuth";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
     element: <ADMLayout />,
     errorElement: <>ErrorPage</>,
     children: [
+      {
+        path: '/yandexAuth',
+        element: <YandexAuth />
+      },
       {
         index: true,
         element: <></>,
