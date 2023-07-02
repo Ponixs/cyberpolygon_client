@@ -21,9 +21,9 @@ export const Layout = () => {
       <Header />
       {state !== "idle" ? <>Loader </> : null}
       <main className="page">
-        <Outlet></Outlet>
+        {/*<Outlet></Outlet>*/}
       </main>
-      <>Footer </>
+      {/*<>Footer </>*/}
     </div>
   );
 };

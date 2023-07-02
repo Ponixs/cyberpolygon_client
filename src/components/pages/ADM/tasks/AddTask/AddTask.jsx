@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { TaskService } from '../../../../../services/taskService';
 
 export const AddTask = ({ taskData }) => {
+    console.log(10);
     const ansRef = useRef(null);
     const diffRef = useRef(null);
     const catRef = useRef(null);
@@ -50,16 +51,10 @@ export const AddTask = ({ taskData }) => {
                     <div id="central-top-container-body">
                         <div id="task-left-container">
                             <div id="task-left-container-top">
-                                <div id="task-left-container-top-name">
-                                    <input type="text" name='' ref={titleRef} />
-                                </div>
-                                <div id="task-left-container-top-count">
-                                    <input type="text" name='' ref={ptsRef} />
-                                </div>
+                                <input id="task-left-container-top-name" type="text" name='' ref={titleRef} /> 
+                                <input id="task-left-container-top-count" type="text" name='' ref={ptsRef} /> 
                             </div>
-                            <div id="task-left-container-text">
-                                <textarea ref={descRef} ></textarea>
-                            </div>
+                            <textarea id='task-left-container-textarea' ref={descRef} ></textarea>
                             <textarea ref={ansRef} id="left-container-text-input" placeholder="Поле для ответа"></textarea>
                             <select ref={diffRef} id="selectID">
                                 <option id="zero">Выбор сложности</option>

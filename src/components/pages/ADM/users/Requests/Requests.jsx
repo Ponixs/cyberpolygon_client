@@ -2,7 +2,11 @@ import { Request } from "../../uiComponents/Request";
 
 
 export const Requests = (props) => {
-    let RequestElements = props.data
+    let data = [
+        { id: 1, name: "Стас Феоктистов", category: "Web" },
+        { id: 2, name: "Стас Феоктистов", category: "Web" },
+    ];
+    let RequestElements = data
         .map(d => <Request data={d} key={d.id} />);
     return (
         <div className="request">

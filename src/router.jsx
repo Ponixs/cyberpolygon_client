@@ -9,56 +9,70 @@ import { ADMLayout } from "./components/pages/ADM/ADMLayout";
 import { ADMTasks } from "./components/pages/ADM/tasks/tasks";
 import { ADMUsers } from "./components/pages/ADM/users/users";
 import { HomePage } from "./components/pages/home/home";
+import { Requests } from "./components/pages/ADM/users/Requests/Requests";
+import { Users } from "./components/pages/ADM/users/Users/Users";
+import { Unusers } from "./components/pages/ADM/users/Unusers/Unusers";
+import { YandexAuth } from "./components/pages/LogReg/yandexAuth";
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: <ADMLayout />,
     errorElement: <>ErrorPage</>,
     children: [
       {
+        path: '/yandexAuth',
+        element: <YandexAuth />
+      },
+      {
         index: true,
-        element: <HomePage />,
+        element: <></>,
       },
       {
-        path: PATHS.tasks,
-        element: <Tasks />,
+        path: PATHS.userAuth, // Для обычных пользователей
+        element: <Registration />, 
       },
       {
-        path: '/tasks/:id',
+        path: PATHS.tasks,  // Задачи (для обычных пользователей)
+        element: <Tasks /> ,
+      },
+      {
+        path: '/tasks/:id', // Для обычных пользователей
         element: <TaskInfo />,
       },
       {
-        path: PATHS.profile,
-        element: <>Profile</>
+        path: PATHS.profile, // Профиль (для обычных пользователей)
+        element: <></>
       },
       {
-        path: PATHS.login,
+        path: PATHS.login, // Для обычных пользователей
         element: <Login />
       },
       {
-        path: PATHS.register,
+        path: PATHS.register, // Для обычных пользователей
         element: <Registration />
       },
       {
-        path: PATHS.admin,
-        element: <ADMLayout />,
-        errorElement: <>ErrorPage</>,
-        children: [
-          {
-            path: PATHS.admin + PATHS.tasks,
-            element: <ADMTasks />,
-          },
-          {
-            path: PATHS.admin + PATHS.users,
-            element: <ADMUsers />,
-          },
-        ]
+        path: PATHS.adminTasks, // Администрация задач (для админов)
+        element:  <ADMTasks />
+      },
+      {
+        path: PATHS.adminRequests,
+        element: <Requests />
+      },
+      {
+        path: PATHS.adminUsers,
+        element: <Users />
+      },
+      {
+        path: PATHS.adminUnusers,
+        element: <Unusers />
       },
       {
         path: "*",
         element: <>NotFoundPage</>,
       }
-    ],
+      
+    ]
   },
 ]);

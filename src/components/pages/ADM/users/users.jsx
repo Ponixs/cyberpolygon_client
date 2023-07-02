@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import api from '../../../../http/api'
 
 export const ADMUsers = () => {
-    const [requestsData, setRequestsData] = useState([
+    /*const [requestsData, setRequestsData] = useState([
         { id: 1, name: "Стас Феоктистов", category: "Web" },
         { id: 2, name: "Стас Феоктистов", category: "Web" },
     ]);
@@ -62,14 +62,14 @@ export const ADMUsers = () => {
         };
 
         fetchData();
-    }, []);
+    }, []);*/
 
     return (
         <>
             <div className="admin">
-                <Requests data={requestsData} />
-                <Users data={usersData} />
-                <Unusers data={unusersData} />
+                <Requests  /> {/*data={requestsData}*/}
+                <Users /> {/*data={usersData}*/}
+                <Unusers /> {/*data={unusersData} */}
             </div>
         </>
     )

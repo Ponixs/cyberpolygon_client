@@ -232,6 +232,10 @@ body{
     border-bottom: 1px solid #ACACAC;
     color: #474A4E;
 }
+.menu_admin a {
+    color: inherit;
+
+}
 .menu_admin div{
     height: 63px;
     border-bottom: 1px solid #ACACAC;
@@ -239,6 +243,10 @@ body{
 }
 .menu_ad_item{
     padding: 20px 0 0 13px;
+}
+
+.menu_ad_item:hover {
+    background-color: #ff00ff;
 }
 .menu_ad_item a{
     color: #474A4E;
@@ -252,6 +260,11 @@ body{
     margin-left: 40px;
     margin-top: 24px;
     width: 1125px;
+}
+
+.request {
+    margin-top: 30px;
+    margin-left: 30px;
 }
 .request_tittle{
     font-size: 24px;
@@ -317,9 +330,10 @@ body{
     margin-top: 10px;
 }
 
-.admin_users{
+/*.admin_users{
     margin-top: 38px;
-}
+}*/
+
 .users_tittle{
     display: flex;
     justify-content: space-between;
@@ -355,6 +369,7 @@ body{
 }
 .users_users{
     margin-top: 30px;
+    margin-left: 30px;
 }
 .users_user{
     display: flex;
@@ -380,7 +395,8 @@ body{
 }
 
 .unusers{
-    margin-top: 56px;
+    margin-top: 30px;
+    margin-left: 30px;
 }
 .unusers_tittle{
     display: flex;
