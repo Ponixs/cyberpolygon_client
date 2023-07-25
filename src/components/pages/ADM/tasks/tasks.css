@@ -161,23 +161,25 @@ button {
 				}
 
 					#task-left-container-top-name {
+						padding-left: 12px;
 						width: 238px;
 						height: 44px;
 						border-radius: 5px;
 						background: #D9D9D9;
 						font-weight: 300;
-						font-size: 20px;
+						font-size: 16px;
 						display: flex;
 						align-items: center;
 					}
 
 					#task-left-container-top-count {
+						padding-left: 12px;
 						width: 135px;
 						height: 44px;
 						background: #D9D9D9;
 						border-radius: 5px;
 						font-weight: 300;
-						font-size: 20px;
+						font-size: 16px;
 						display: flex;
 						align-items: center;
 					}
@@ -228,6 +230,7 @@ button {
 				margin-bottom: 24px;
 			}
 		#task-right-container {
+			border-left: 1px solid #000000;
 			display: flex;
 			flex-direction: column;
 			width: 559px;
@@ -268,7 +271,6 @@ button {
 		#task-right-container-body {
 			width: 559px;
 			height: 347px;
-			border-left:1px solid #000000;;
 			display: flex;
 		}
 
@@ -315,6 +317,7 @@ button {
 
 			#reg-file-input {
 				display: flex;
+				justify-content: space-between;
 				margin-top: 7px;
 				align-items: center;
 			}
@@ -340,6 +343,8 @@ button {
 			}
 
 			#task-right-container-body-add button{
+				margin-top: 237px;
+				margin-left: 380px;
 				border: 0px;
 				width: 155px;
 				height: 53px;
@@ -445,4 +450,11 @@ button {
 
 #delete-icon-night2 {
 	display: none;
+}
+
+.form-label-file-span {
+	white-space: nowrap;
+	width: 120px;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }

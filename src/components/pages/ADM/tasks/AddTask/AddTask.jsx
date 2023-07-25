@@ -1,9 +1,11 @@
 import delSvg from '../../../../../assets/delete.svg'
 import addSvg from '../../../../../assets/add.svg'
+
 import { useRef } from 'react';
 import { TaskService } from '../../../../../services/taskService';
 
 export const AddTask = ({ taskData }) => {
+    const spanRef = useRef(null);   
     console.log(10);
     const ansRef = useRef(null);
     const diffRef = useRef(null);
@@ -26,6 +28,20 @@ export const AddTask = ({ taskData }) => {
             fileRef.current.files = taskData.file;
         }
     }, 0)
+
+    let fileChange = () => {
+        if (document.getElementById('file-input').files[0]){
+            spanRef.current.innerHTML = document.getElementById('file-input').files[0].name;
+            spanRef.current.style.fontSize = '14px';
+            spanRef.current.style.marginRight = '10px';
+            spanRef.current.style.color = '#0f963c';
+        } else {
+            spanRef.current.innerHTML = "Файл";
+            spanRef.current.style.fontSize = '24px';
+            spanRef.current.style.marginRight = '10px';
+            spanRef.current.style.color = 'black';
+        }
+    }
 
     const onFormSubmit = (e) => {
         e.preventDefault();
@@ -51,47 +67,58 @@ export const AddTask = ({ taskData }) => {
                     <div id="central-top-container-body">
                         <div id="task-left-container">
                             <div id="task-left-container-top">
-                                <input id="task-left-container-top-name" type="text" name='' ref={titleRef} /> 
-                                <input id="task-left-container-top-count" type="text" name='' ref={ptsRef} /> 
+                                <input id="task-left-container-top-name" type="text" name='' ref={titleRef} />
+                                <input id="task-left-container-top-count" type="text" name='' ref={ptsRef} />
                             </div>
                             <textarea id='task-left-container-textarea' ref={descRef} ></textarea>
                             <textarea ref={ansRef} id="left-container-text-input" placeholder="Поле для ответа"></textarea>
                             <select ref={diffRef} id="selectID">
                                 <option id="zero">Выбор сложности</option>
-                                <option id="one">1</option>
-                                <option id="two">2</option>
+                                <option id="easy">Лёгкая</option>
+                                <option id="normal">Нормальная</option>
+                                <option id="hard">Сложная</option>
                             </select>
                             <select ref={catRef} id="selectID2">
                                 <option id="zero">Выбор категории</option>
-                                <option id="one">1</option>
-                                <option id="two">2</option>
+                                <option id="admin">Admin</option>
+                                <option id="reverse">Reverse/PWN, Binary, Vuln</option>
+                                <option id="stegano">Stegano</option>
+                                <option id="ppc">Ppc</option>
+                                <option id="forensic">Forensic</option>
+                                <option id="crypto">Crypto</option>
+                                <option id="web">Web</option>
+                                <option id="network">Network</option>
+                                <option id="osint">Osint</option>
                             </select>
                         </div>
                         <div id="task-right-container">
-                            <div id="task-right-container-header">
+                            {/*<div id="task-right-container-header">
                                 <div id="task-right-container-header-cont">.256sha</div>
                                 <div id="task-right-container-header-icon">
                                     <img id="delete-icon" src={delSvg} alt="удалить" />
                                 </div>
-                            </div>
+                            </div>*/}
                             <div id="task-right-container-body">
                                 <textarea ref={solRef} id="task-right-container-body-text" placeholder="Решение"></textarea>
                                 <div id="task-right-container-body-inputs">
                                     <div id="task-right-container-body-fileInput">
-                                        <input ref={fileRef} id="file-input" type="file" name="file" accept="image/*" />
+                                        <input ref={fileRef} id="file-input" type="file" name="file" accept="image/*" data-multiple-caption="{count} файлов выбрано" onChange={fileChange} multiple />
                                         <label className="form-label-file" htmlFor="file-input" id="reg-file-input">
-                                            <span>Файл</span>
+                                            <span className='form-label-file-span' ref={spanRef}>Файл</span>
                                             <div id="stud-logo-container">
                                                 <img id="stud-bilet-logo" src={addSvg} alt="добавить" />
                                             </div>
                                         </label>
                                     </div>
-                                    <div id="task-right-container-body-add">
-                                        <button id="button" type="submit">Добавить</button>
-                                    </div>
+
                                 </div>
+
+                            </div>
+                            <div id="task-right-container-body-add">
+                                <button id="button" type="submit">Добавить</button>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </form>

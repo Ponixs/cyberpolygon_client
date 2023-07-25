@@ -6,7 +6,6 @@ export const Unuser = (props) => {
         <div className="user_reg">
             <div className="user_data">
                 <div className="stud_ticket">
-                    <input type="file" />
                     <p>Студенческий билет</p>
                 </div>
                 <div className="user_reg_data">

@@ -1,0 +1,212 @@
+#checkbox {
+	visibility: hidden;
+}
+
+#checkbox-group {
+	position: relative;
+	width: 64px;
+	height: 32px;
+	background: #F0F0F0;
+	border: 1px solid #ACACAC;
+	border-radius: 20px;
+	margin-right: 59px;
+}
+
+
+#checkbox-label {
+	display: block;
+	width: 19px;
+	height: 19px;
+	background: #AAAAAA;
+	border-radius: 50%;
+	position: absolute;
+	top: 7px;
+	left: 7px;
+	transition: all 0.4s ease;
+	cursor: pointer;
+}
+
+#checkbox:checked + #checkbox-label {
+	left: 38px;
+}
+
+#fixed-container {
+	width: 1012px;
+	height: 435px;
+	display: flex;
+	justify-content: space-between;
+	margin-left: 41px;
+	margin-top: 35px;
+}
+
+#main-container {
+	width: 689px;
+	height: 435px;
+	background: rgba(238, 238, 238, 0.73);
+	border: 0.5px solid #ACACAC;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	
+}
+	
+	#main-container-info {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		width: 330px;
+		height: 335px;
+	}
+
+		#main-container-info label{
+			font-weight: 300;
+			font-size: 20px;
+			margin-left: 15px;
+			margin-bottom: 6px;
+		}
+
+		#main-container-info h1{
+			font-weight: 500;
+			font-size: 24px;
+			color: #474A4E;
+		}
+
+	#forma2 {
+		margin-top: 16px;
+		margin-left: 28px;
+		width: 646px;
+		height: 400px;
+		display: flex;
+		justify-content: space-between;
+		
+	}
+
+	#main-container-info div {
+		width: 326px;
+		height: 73px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	#forma2 input {
+		width: 326px;
+		height: 47px;
+		background: #D9D9D9;
+		border-radius: 5px;
+		border: 0px;
+		font-weight: 300;
+		font-size: 20px;
+		color: #474A4E;
+		text-indent: 15px;
+
+	}
+
+	#main-container-button {
+		width: 148px;
+		height: 400px;
+		display: flex;
+		justify-content: flex-end;
+		flex-direction: column;
+	}
+
+		#main-container-button button {
+			width: 148px;
+			height: 53px;
+			background: #D9D9D9;
+			border-radius: 5px;
+			font-weight: 400;
+			font-size: 24px;
+			color: #474A4E;
+			border: 0px;
+		}
+
+	#right-container {
+		width: 277px;
+		height: 435px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	#right-container button {
+		border: 0px;
+		width:39px ;
+		height: 39px;
+		margin-right: 12px;
+	}
+
+		#right-container-top {
+			width: 277px;
+			height: 126px;
+			margin-top:	 12px;
+		}
+
+		#right-container-top div{
+			width: 265px;
+			height: 67px;
+			padding-left: 12px;
+			background: #D9D9D9;
+			border-radius: 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-weight: 500;
+			font-size: 20px;
+			color: #474A4E;
+		}
+
+		#right-container-top p{
+			font-weight: 500;
+			font-size: 24px;
+			color: #474A4E;
+			margin-left: 12px;
+		}
+
+		#right-container-bottom {
+			width: 277px;
+			height: 221px;
+			margin-bottom: 12px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+			#right-container-bottom div{
+			width: 265px;
+			height: 67px;
+			padding-left: 12px;
+			background: #D9D9D9;
+			border-radius: 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-weight: 500;
+			font-size: 20px;
+			color: #474A4E;
+		}
+
+		#right-container-bottom p{
+			margin: 0px	;
+			font-weight: 500;
+			font-size: 24px;
+			color: #474A4E;
+			margin-left: 12px;
+		}
+
+	#delete-icon {
+		width: 39px;
+		height: 39px;
+		margin-right: 7px;
+	}
+
+	#stud-bilet-logo {
+		margin-right: 7px;
+	}
+
+	#delete-icon {
+	display: block;
+}
+
+#delete-icon-night {
+	display: none;
+}

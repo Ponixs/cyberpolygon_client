@@ -1,6 +1,20 @@
 import axios from "axios"; 
+import * as YaAuthSuggest from 'https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-token-with-polyfills-latest.js';
 
 export const YandexAuth = (props) => {
+    console.log(YaAuthSuggest.init);
+    /*YaAuthSuggest.init({
+        client_id: 'c46f0c53093440c39f12eff95a9f2f93',
+        response_type: 'token',
+        redirect_uri: 'https://example.com/suggest/token'
+     },
+     'https://example.com'
+  )
+  .then(({
+     handler
+  }) => handler())
+  .then(data => console.log('Сообщение с токеном', data))
+  .catch(error => console.log('Обработка ошибки', error))*/
     var params = window.location.href
         .replace('#', '&')
         .replace('?', '')
@@ -17,20 +31,20 @@ export const YandexAuth = (props) => {
 
     if (token) {
         console.log("OAuth" + " " + token);
-        /*axios.get('https://login.yandex.ru/info?format=jwt',   {
+        axios.get('https://login.yandex.ru/info?format=jwt',   {
             headers : {
-                'Authorization': "OAuth" + " " + token
-            }
+                'Authorization': "OAuth" + " " + token,
+            },
+            withCredentials: true
             
-        }).then(res => {
+        }, ).then(res => {
             console.log(res)
-        })*/
+        })
     }
 
     return (
         <div>
-            <h1>Авторизация Яндекс</h1>
-            <a href="https://oauth.yandex.ru/authorize?response_type=token&client_id=47c264e6ebe643e5a3e4b44973fa6e5d">Войти через Яндекс</a>
+            
         </div>
 
     );
