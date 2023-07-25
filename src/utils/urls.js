@@ -1,5 +1,6 @@
 export const PATHS = {
     home: '/',
+    rating: "/rating",
     aboutMaterial: '/aboutMaterial',
     tasks: '/tasks',
     aboutTask: '/aboutTask',

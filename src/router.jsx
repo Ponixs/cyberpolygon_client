@@ -13,6 +13,7 @@ import { Requests } from "./components/pages/ADM/users/Requests/Requests";
 import { Users } from "./components/pages/ADM/users/Users/Users";
 import { Unusers } from "./components/pages/ADM/users/Unusers/Unusers";
 import { YandexAuth } from "./components/pages/LogReg/yandexAuth";
+import { Profile } from "./components/pages/profile/profile";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: '/yandexAuth',
         element: <YandexAuth />
+      },
+      {
+        path: PATHS.rating,
+        element: <></>
       },
       {
         index: true,
@@ -42,7 +47,7 @@ export const router = createBrowserRouter([
       },
       {
         path: PATHS.profile, // Профиль (для обычных пользователей)
-        element: <></>
+        element: <Profile />
       },
       {
         path: PATHS.login, // Для обычных пользователей
